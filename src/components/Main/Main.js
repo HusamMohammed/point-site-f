@@ -1,16 +1,16 @@
 import React from "react"
 import styled from "styled-components"
-import Particles from "react-particles-js"
+// import Particles from "react-particles-js"
 
 import AppContext from "../../Contexts/AppContext"
-import particlesConfig from "./particles-config"
+// import particlesConfig from "./particles-config"
 
 const Main = ({ children }) => {
   const { mobileMenu } = React.useContext(AppContext)
 
   return (
     <MainW isMobileMenuOpen={mobileMenu}>
-      <Particles height="100%" width="100%" params={particlesConfig} />
+      {/* <Particles height="100%" width="100%" params={particlesConfig} /> */}
       {children}
     </MainW>
   )
