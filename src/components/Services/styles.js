@@ -26,7 +26,7 @@ export const ServiceCard = styled.div`
   }
 
   @media (max-width: 520px) {
-    max-width: 200px;
+    max-width: 190px;
     margin: 0 auto;
   }
 `
