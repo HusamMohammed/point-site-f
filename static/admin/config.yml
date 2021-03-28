@@ -20,7 +20,7 @@
         fields:
           [
             { label: 'النص الرئيسي', name: 'mainText', required: true },
-            { label: 'Main Text', name: 'mainTextEn', required: true },
+            { label: 'Main Text', name: 'englishText', required: true },
             {
               label: 'صور الخلفية',
               name: 'images',
