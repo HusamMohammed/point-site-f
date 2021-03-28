@@ -39,7 +39,7 @@ const Footer = ({ ltr }) => {
 
   React.useEffect(() => {
     const sections = document.querySelectorAll("section[id]")
-    console.log("footer", sections)
+    //  console.log("footer", sections)
     window.addEventListener("scroll", () => scrollActive(sections))
   }, [])
 
