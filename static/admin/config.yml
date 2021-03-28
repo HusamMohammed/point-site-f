@@ -1,7 +1,7 @@
 {
   local_backend: true,
   backend:
-    { name: 'git-gateway', repo: 'HusamMohammed/point-site', branch: 'main' },
+    { name: 'git-gateway', repo: 'HusamMohammed/point-site-f', branch: 'main' },
 
   media_folder: 'content/assets',
   public_folder: '/assets',
