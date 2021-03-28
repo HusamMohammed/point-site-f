@@ -11,7 +11,7 @@ import {
 
 import ToggleButton from "../shared/ToggleButton"
 
-const HeaderMenuMobile = () => {
+const HeaderMenuMobile = ({ ltr }) => {
   const { mobileMenu, toggleMobileMenu } = React.useContext(AppContext)
 
   const toggleHandler = e => {
@@ -40,35 +40,36 @@ const HeaderMenuMobile = () => {
         id="mobileMenu"
         className={`sidebar ${mobileMenu ? "active" : ""}`}
         onClick={handler}
+        ltr={ltr}
       >
         <MenuListItem>
           <MenuLink to="#الرئيسية" className="active" onClick={removeMenu}>
-            الرئيسية
+            {ltr ? "Home" : "الرئيسية"}
           </MenuLink>
         </MenuListItem>
         <MenuListItem>
           <MenuLink onClick={removeMenu} to="#عن_نقطة">
-            عن نقطة
+            {ltr ? "About" : "عن نقطة"}
           </MenuLink>
         </MenuListItem>
         <MenuListItem>
           <MenuLink onClick={removeMenu} to="#خدماتنا">
-            خدماتنا
+            {ltr ? "Services" : "خدماتنا"}
           </MenuLink>
         </MenuListItem>
         <MenuListItem>
           <MenuLink onClick={removeMenu} to="#أعمالنا">
-            أعمالنا
+            {ltr ? "Our Works" : "أعمالنا"}
           </MenuLink>
         </MenuListItem>
         <MenuListItem>
           <MenuLink onClick={removeMenu} to="#عملاؤنا">
-            عملاؤنا
+            {ltr ? "Our Clients" : "عملاؤنا"}
           </MenuLink>
         </MenuListItem>
         <MenuListItem>
           <MenuLink onClick={removeMenu} to="#اتصل_بنا">
-            اتصل بنا
+            {ltr ? "Contact Us" : " اتصل بنا"}
           </MenuLink>
         </MenuListItem>
         <MenuListItem>

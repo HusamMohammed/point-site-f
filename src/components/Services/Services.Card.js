@@ -3,12 +3,19 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { ServiceCard } from "./styles"
 
-const ServicesCard = ({ service }) => {
+const ServicesCard = ({ service, ltr }) => {
   const { name, description, image } = service
 
   const img = getImage(image)
   return (
-    <ServiceCard className="services__card">
+    <ServiceCard
+      ltr={ltr}
+      className="services__card"
+      // data-sal="slide-up"
+      // data-sal-delay="300"
+      // data-sal-duration="400"
+      // data-sal-easing="ease-out"
+    >
       <ServiceCard.Image>
         <GatsbyImage
           image={img}

@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 import ProjectCard from "./Projects.Card"
 
-const ProjectsSlider = ({ projects }) => {
+const ProjectsSlider = ({ projects, ltr }) => {
   const [hasMounted, setHasMounted] = React.useState(false)
 
   React.useEffect(() => {
@@ -17,7 +17,7 @@ const ProjectsSlider = ({ projects }) => {
       speed={600}
       slidesPerView={1}
       spaceBetween={0}
-      dir="rtl"
+      dir={ltr ? "ltr" : "rtl"}
       breakpoints={{
         550: {
           slidesPerView: 2,
@@ -36,7 +36,7 @@ const ProjectsSlider = ({ projects }) => {
     >
       {projects.map((project, index) => (
         <SwiperSlide key={index}>
-          <ProjectCard project={project} />
+          <ProjectCard project={project} ltr={ltr} />
         </SwiperSlide>
       ))}
     </Swiper>

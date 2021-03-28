@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 
 import ProjectsSlider from "./Projects.Slider"
 
@@ -7,32 +6,7 @@ import Container from "../shared/Container"
 import { Title, SubTitle, ContactBtn } from "../shared/StyledComponents"
 import { Section } from "./styles"
 
-const Projects = () => {
-  const { projects, subTitle } = useStaticQuery(graphql`
-    {
-      projects: allProjects1Json {
-        nodes {
-          title
-          description
-          isLink
-          url
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                formats: [AUTO, WEBP, AVIF]
-                quality: 85
-                placeholder: BLURRED
-              )
-            }
-          }
-        }
-      }
-      subTitle: subTitesJson {
-        projects
-      }
-    }
-  `)
-
+const Projects = ({ projects, ltr }) => {
   return (
     <Section id="أعمالنا" className="projects">
       <Container>
@@ -42,7 +16,7 @@ const Projects = () => {
           data-sal-duration="400"
           data-sal-easing="ease-out"
         >
-          أعمالنا
+          {ltr ? "Our Projects" : "أعمالنا"}
         </Title>
         <SubTitle
           data-sal="slide-up"
@@ -50,16 +24,16 @@ const Projects = () => {
           data-sal-duration="400"
           data-sal-easing="ease-out"
         >
-          {subTitle.projects}
+          {projects.subTitle}
         </SubTitle>
-        <ProjectsSlider projects={projects.nodes} />
+        <ProjectsSlider projects={projects.projects.nodes} ltr={ltr} />
         <ContactBtn
           data-sal="slide-up"
           data-sal-delay="500"
           data-sal-duration="300"
           data-sal-easing="ease-out"
         >
-          تواصل معنا
+          {ltr ? "Contact Us" : "تواصل معنا"}
         </ContactBtn>
       </Container>
     </Section>

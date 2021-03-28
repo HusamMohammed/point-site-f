@@ -58,14 +58,14 @@ export const ImageWrapper = styled.div`
 
   /* text-align: center; */
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
-    padding: 1.5rem;
+    padding: 1.5rem 3.5rem;
     max-width: initial;
   }
 
   @media (min-width: ${({ theme }) => theme.breakPoints.md}) {
-    padding: 2rem 4rem;
+    padding: 2rem 5rem;
   }
   @media (min-width: ${({ theme }) => theme.breakPoints.lg}) {
-    padding: 2rem 5rem;
+    padding: 2rem 6rem;
   }
 `

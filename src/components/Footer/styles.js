@@ -37,6 +37,7 @@ export const CopyRight = styled.p`
   color: #e9e9e9;
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   text-align: center;
+  vertical-align: -webkit-baseline-middle;
 
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
     margin-top: 1rem;
@@ -47,6 +48,13 @@ export const CopyRight = styled.p`
     margin-top: 0;
     font-size: 17px;
   }
+
+  /* span {
+    font-size: 1.3rem;
+    //vertical-align: -moz-middle-with-baseline;
+    //vertical-align: -webkit-baseline-middle;
+    vertical-align: baseline;
+  } */
 `
 
 // FooterForm styles
@@ -80,20 +88,20 @@ export const FooterLogo = styled.div`
 `
 export const FooterFormText = styled.p`
   max-width: 300px;
-  margin-right: 1.5rem;
+  margin-inline-start: 1.5rem;
   align-self: flex-end;
   font-size: 15px;
   color: ${({ theme }) => theme.colors.white};
 
   @media (min-width: ${({ theme }) => theme.breakPoints.md}) {
-    margin-right: 2rem;
+    margin-inline-start: 2rem;
   }
 `
 export const Form = styled.form`
   position: relative;
   max-width: 360px;
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
-    max-width: 430px;
+    max-width: 400px;
   }
 `
 export const EmailInput = styled.input.attrs({
@@ -125,10 +133,11 @@ export const SubmitButton = styled.button.attrs({
   width: 25%;
   height: 100%;
   top: 0;
-  left: 0;
+  left: ${props => (props.ltr ? "auto" : "0")};
+  right: ${props => (props.ltr ? "0" : "auto")};
   background-color: ${({ theme }) => theme.colors.skyBlue};
   color: ${({ theme }) => theme.colors.white};
-  border-radius: 5px 0 0 5px;
+  border-radius: ${props => (props.ltr ? "0 5px 5px 0" : "5px 0 0 5px")};
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -215,7 +224,7 @@ export const FooterBottomLink = styled(FooterLink)`
   font-size: 14px;
 
   &:last-of-type {
-    margin-left: 0;
+    margin-inline-end: 0;
   }
 
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
@@ -237,7 +246,7 @@ export const SocialIcon = styled.a`
   cursor: pointer;
 
   &:last-of-type {
-    margin-left: 0;
+    margin-inline-end: 0;
   }
 
   &:hover {

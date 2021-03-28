@@ -3,5 +3,7 @@
   "description": "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.",
   "image": "project6.png",
   "isLink": false,
-  "url": ""
+  "url": "",
+  "title_en": "Online Testing",
+  "description_en": "Lorem ipsum dolor sit amet,consectetur adipisicing elit, sed do eiusmod tempor incididunt utlabore et dolore magna."
 }

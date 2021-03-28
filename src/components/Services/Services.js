@@ -1,64 +1,26 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 
 import ServicesSlider from "./Services.Slider"
 
-import Container from "../shared/Container"
 import { Title, SubTitle } from "../shared/StyledComponents"
-import { Section } from "./styles"
+import { ServicesContainer, Section } from "./styles"
 
 // const ServicesSlider = React.lazy(() => import("./Services.Slider"))
 
-const Services = () => {
-  const { services1, services2, subTitle } = useStaticQuery(graphql`
-    {
-      services1: allServices1Json {
-        nodes {
-          name
-          description
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                width: 200
-                formats: [AUTO, WEBP, AVIF]
-                quality: 85
-                placeholder: BLURRED
-              )
-            }
-          }
-        }
-      }
-      services2: allServices2Json {
-        nodes {
-          name
-          description
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                width: 200
-                formats: [AUTO, WEBP, AVIF]
-                quality: 85
-                placeholder: BLURRED
-              )
-            }
-          }
-        }
-      }
-      subTitle: subTitesJson {
-        services
-      }
-    }
-  `)
+const Services = ({ services, ltr }) => {
+  const { services1, services2, subTitle } = services
+
   return (
     <Section id="خدماتنا" className="services">
-      <Container>
+      <ServicesContainer>
         <Title
           data-sal="slide-up"
           data-sal-delay="200"
           data-sal-duration="400"
           data-sal-easing="ease-out"
         >
-          خدماتنا
+          {ltr ? "Our Services" : "خدماتنا"}
         </Title>
         <SubTitle
           data-sal="slide-up"
@@ -66,11 +28,11 @@ const Services = () => {
           data-sal-duration="400"
           data-sal-easing="ease-out"
         >
-          {subTitle.services}
+          {subTitle}
         </SubTitle>
-        <ServicesSlider services={services1.nodes} />
-        <ServicesSlider services={services2.nodes} />
-      </Container>
+        <ServicesSlider services={services1.nodes} ltr={ltr} />
+        <ServicesSlider services={services2.nodes} ltr={ltr} />
+      </ServicesContainer>
     </Section>
   )
 }

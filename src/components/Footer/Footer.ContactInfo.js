@@ -3,9 +3,18 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { ContactWrapper, FooterHeading, Item } from "./styles"
 
-const FooterContactInfo = () => {
+const FooterContactInfo = ({ ltr }) => {
   const {
-    contact: { location, email, phone, item4, item5 },
+    contact: {
+      location,
+      email,
+      phone,
+      item4,
+      item5,
+      location_en,
+      item4_en,
+      item5_en,
+    },
   } = useStaticQuery(graphql`
     {
       contact: contactJson {
@@ -14,6 +23,9 @@ const FooterContactInfo = () => {
         location
         item4
         item5
+        location_en
+        item4_en
+        item5_en
       }
     }
   `)
@@ -25,7 +37,7 @@ const FooterContactInfo = () => {
         data-sal-duration="300"
         data-sal-easing="ease-out"
       >
-        تواصل
+        {ltr ? "Contact" : "تواصل"}
       </FooterHeading>
       <Item
         as="p"
@@ -34,7 +46,7 @@ const FooterContactInfo = () => {
         data-sal-duration="300"
         data-sal-easing="ease-out"
       >
-        {location}
+        {ltr ? location_en : location}
       </Item>
       <Item
         as="p"
@@ -62,7 +74,7 @@ const FooterContactInfo = () => {
           data-sal-duration="300"
           data-sal-easing="ease-out"
         >
-          {item4}
+          {ltr ? item4_en : item4}
         </Item>
       )}
       {item5 && (
@@ -73,7 +85,7 @@ const FooterContactInfo = () => {
           data-sal-duration="300"
           data-sal-easing="ease-out"
         >
-          {item5}
+          {ltr ? item5_en : item5}
         </Item>
       )}
     </ContactWrapper>

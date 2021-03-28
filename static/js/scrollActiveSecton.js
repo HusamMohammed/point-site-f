@@ -1,11 +1,7 @@
-// const sections = document.querySelectorAll("section[id]")
+//const sections = document.querySelectorAll("section[id]")
 
-// console.log(sections)
-
-function scrollActive(sections) {
+function scrollActive() {
   const scrollY = window.pageYOffset
-
-  // console.log("orl", sections)
 
   sections.forEach(current => {
     const sectionHeight = current.offsetHeight
@@ -32,6 +28,8 @@ function scrollActive(sections) {
     }
   })
 }
-
-export default scrollActive
-// window.addEventListener("scroll", scrollActive)
+window.addEventListener("load", () => {
+  const sections = document.querySelectorAll("section[id]")
+  console.log("sections", sections)
+  window.addEventListener("scroll", scrollActive)
+})

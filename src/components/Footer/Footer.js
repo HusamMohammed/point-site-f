@@ -11,9 +11,11 @@ import FooterLSC from "./Footer.LSC"
 import FooterLinks from "./Footer.Links"
 import FooterBottom from "./Footer.Bottom"
 
+import scrollActive from "../../utils/scrollActiveSecton"
+
 import { Divider } from "./styles"
 
-const Footer = () => {
+const Footer = ({ ltr }) => {
   const {
     contact: { background },
   } = useStaticQuery(graphql`
@@ -35,13 +37,19 @@ const Footer = () => {
 
   const image = getImage(background)
 
+  React.useEffect(() => {
+    const sections = document.querySelectorAll("section[id]")
+    console.log("footer", sections)
+    window.addEventListener("scroll", () => scrollActive(sections))
+  }, [])
+
   return (
     <Wrapper>
       <Container>
         <FooterGrid>
-          <FooterForm />
-          <FooterContactInfo />
-          <FooterNav />
+          <FooterForm ltr={ltr} />
+          <FooterContactInfo ltr={ltr} />
+          <FooterNav ltr={ltr} />
           <FooterLSC />
           {/* <FooterLinks />
           <FooterLogo
@@ -54,7 +62,7 @@ const Footer = () => {
           </FooterLogo> */}
         </FooterGrid>
         <Divider />
-        <FooterBottom />
+        <FooterBottom ltr={ltr} />
       </Container>
       <GatsbyImage
         image={image}

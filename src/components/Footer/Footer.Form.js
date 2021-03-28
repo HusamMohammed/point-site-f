@@ -11,7 +11,7 @@ import {
   SubmitButton,
 } from "./styles"
 
-const FooterForm = () => {
+const FooterForm = ({ ltr }) => {
   return (
     <FormWrapper>
       <Wrapper
@@ -29,8 +29,9 @@ const FooterForm = () => {
           data-sal-duration="400"
           data-sal-easing="ease-out"
         >
-          نحن شغوفون دائماً بالعمل الدؤوب لتحقيق النهايات السعيدة، وإحداث
-          التغيير.
+          {ltr
+            ? "We are very passionate about hard work to achieve happy endings and change."
+            : "نحن شغوفون دائماً بالعمل الدؤوب لتحقيق النهايات السعيدة، وإحداث التغيير."}
         </FooterFormText>
       </Wrapper>
       <Form
@@ -39,8 +40,13 @@ const FooterForm = () => {
         data-sal-duration="400"
         data-sal-easing="ease-out"
       >
-        <EmailInput placeholder="ادخل بريد الالكتروني" />
-        <SubmitButton>ارسل</SubmitButton>
+        <EmailInput
+          placeholder={
+            ltr ? "Enter your email address" : "ادخل بريدك الالكتروني"
+          }
+          ltr={ltr}
+        />
+        <SubmitButton ltr={ltr}>{ltr ? "Send" : "ارسل"}</SubmitButton>
       </Form>
     </FormWrapper>
   )

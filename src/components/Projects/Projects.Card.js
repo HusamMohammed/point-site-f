@@ -3,13 +3,18 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { ProjectCard } from "./styles"
 
-const ProjectsCard = ({ project }) => {
+const ProjectsCard = ({ project, ltr }) => {
   const { title, description, image, isLink, url } = project
 
   const imageData = getImage(image)
 
   return (
-    <ProjectCard isLink={isLink} href={isLink ? url : ""} target="_blank">
+    <ProjectCard
+      ltr={ltr}
+      isLink={isLink}
+      href={isLink ? url : ""}
+      target="_blank"
+    >
       <ProjectCard.Image>
         <GatsbyImage
           image={imageData}

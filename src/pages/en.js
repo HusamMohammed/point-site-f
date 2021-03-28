@@ -1,5 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import { createGlobalStyle } from "styled-components"
 
 import Layout from "../components/Layout/Layout"
 import Hero from "../components/Hero/Hero"
@@ -9,20 +10,28 @@ import Projects from "../components/Projects/Projects"
 import Clients from "../components/Clients/Clients"
 import SEO from "../components/SEO/SEO"
 
+const Global = createGlobalStyle`
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+  }
+`
+
 const IndexPage = ({ data }) => {
   const { hero, about, services1, services2, projects, subTitles } = data
-
+  // console.log(projects)
   return (
-    <Layout>
-      <SEO title="نقطة" />
+    <Layout ltr>
+      <SEO title="نقطة" lang="en" dir="ltr" />
+      <Global />
 
-      <Hero hero={hero} />
-      <About about={about} />
+      <Hero hero={hero} ltr />
+      <About about={about} ltr />
       <Services
         services={{ services1, services2, subTitle: subTitles.services }}
+        ltr
       />
-      <Projects projects={{ projects, subTitle: subTitles.projects }} />
-      <Clients subTitle={subTitles.clients} />
+      <Projects projects={{ projects, subTitle: subTitles.projects }} ltr />
+      <Clients subTitle={subTitles.clients} ltr />
     </Layout>
   )
 }
@@ -32,18 +41,18 @@ export default IndexPage
 export const query = graphql`
   {
     hero: homeJson {
-      mainText
+      mainText: mainText_en
     }
 
     about: aboutJson {
-      title
-      description
+      title: title_en
+      description: description_en
     }
 
     services1: allServices1Json {
       nodes {
-        name
-        description
+        name: name_en
+        description: description_en
         image {
           childImageSharp {
             gatsbyImageData(
@@ -58,8 +67,8 @@ export const query = graphql`
     }
     services2: allServices2Json {
       nodes {
-        name
-        description
+        name: name_en
+        description: description_en
         image {
           childImageSharp {
             gatsbyImageData(
@@ -75,8 +84,8 @@ export const query = graphql`
 
     projects: allProjects1Json {
       nodes {
-        title
-        description
+        title: title_en
+        description: description_en
         isLink
         url
         image {
@@ -92,9 +101,9 @@ export const query = graphql`
     }
 
     subTitles: subTitesJson {
-      services
-      projects
-      clients
+      services: services_en
+      projects: projects_en
+      clients: clients_en
     }
   }
 `

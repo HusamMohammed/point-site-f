@@ -19,7 +19,7 @@ export const ProjectCard = styled.a`
   width: 100%;
   padding-bottom: 1rem;
   text-align: center;
-  direction: rtl;
+  direction: ${props => (props.ltr ? "ltr" : "rtl")};
   transition: box-shadow 0.3s ease-out;
 
   &:hover {

@@ -37,7 +37,12 @@ export const ContactBtn = styled.button`
   font-size: 16px;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   border-radius: 99px;
+  transition: transform 500ms ease;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
     font-size: 20px;

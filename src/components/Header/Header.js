@@ -7,7 +7,7 @@ import enableStickyHeader from "../../utils/enableStickyHeader"
 
 import { HeaderWrapper, HeaderContainer, Nav, HeaderLogo } from "./styles"
 
-const Header = () => {
+const Header = ({ ltr }) => {
   useEffect(() => {
     enableStickyHeader("Header")
   }, [])
@@ -15,11 +15,11 @@ const Header = () => {
   return (
     <HeaderWrapper id="Header">
       <HeaderContainer>
-        <Nav>
-          <HeaderMenuMobile />
-          <HeaderMenu />
+        <Nav ltr={ltr}>
+          <HeaderMenuMobile ltr={ltr} />
+          <HeaderMenu ltr={ltr} />
         </Nav>
-        <HeaderLogo>
+        <HeaderLogo ltr={ltr}>
           <Logo />
         </HeaderLogo>
       </HeaderContainer>

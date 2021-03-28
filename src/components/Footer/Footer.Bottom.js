@@ -6,11 +6,11 @@ import FooterLinks from "./Footer.Links"
 
 import { FooterBottomGWrapper, CopyRight } from "./styles"
 
-const FooterBottom = () => {
+const FooterBottom = ({ ltr }) => {
   return (
     <Wrapper>
       <FooterSocialIcons />
-      <FooterLinks />
+      <FooterLinks ltr={ltr} />
       {/* <div> */}
       <CopyRight
         data-sal="slide-up"
@@ -18,7 +18,14 @@ const FooterBottom = () => {
         data-sal-duration="300"
         data-sal-easing="ease-out"
       >
-        جميع الحقطة محفوظة لشركة point 2021
+        {ltr ? (
+          <>
+            <span style={{ marginRight: "5px" }}>&copy;</span>
+            <span>Point 2021. All Rights Reserved</span>
+          </>
+        ) : (
+          "جميع الحقطة محفوظة لشركة point 2021"
+        )}
       </CopyRight>
       {/* </div> */}
     </Wrapper>

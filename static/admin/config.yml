@@ -20,6 +20,7 @@
         fields:
           [
             { label: 'النص الرئيسي', name: 'mainText', required: true },
+            { label: 'Main Text', name: 'mainText_en', required: true },
             {
               label: 'صور الخلفية',
               name: 'images',
@@ -40,6 +41,8 @@
           [
             { label: 'العنوان', name: 'title', required: true },
             { label: 'النص التعريفي', name: 'description', required: true },
+            { label: 'Title', name: 'title_en', required: true },
+            { label: 'Description', name: 'description_en', required: true },
           ],
       },
       {
@@ -57,8 +60,10 @@
         fields:
           [
             { label: 'اسم الخدمة', name: 'name', required: true },
-            { label: 'صورة', name: 'image', widget: 'image', required: true },
             { label: 'نص توصيفي', name: 'description', required: true },
+            { label: 'Service Name', name: 'name_en', required: true },
+            { label: 'Service Description', name: 'description_en', required: true },
+            { label: 'صورة', name: 'image', widget: 'image', required: true },
           ],
       },
       {
@@ -76,8 +81,10 @@
         fields:
           [
             { label: 'اسم الخدمة', name: 'name', required: true },
-            { label: 'صورة', name: 'image', widget: 'image', required: true },
             { label: 'نص توصيفي', name: 'description', required: true },
+             { label: 'Service Name', name: 'name_en', required: true },
+            { label: 'Service Description', name: 'description_en', required: true },
+            { label: 'صورة', name: 'image', widget: 'image', required: true },
           ],
       },
       {
@@ -103,6 +110,8 @@
               default: false,
             },
             { label: 'لينك', name: 'url', widget: 'string', required: false },
+            { label: 'Title', name: 'title_en', required: true },
+            { label: 'Description', name: 'description_en', required: true },
           ],
       },
       {
@@ -119,8 +128,8 @@
         editor: { preview: false },
         fields:
           [
-            { label: 'اسم العميل', name: 'name', required: true },
-            { label: 'صورة', name: 'image', widget: 'image', required: true },
+            { label: 'الاسم', name: 'name', required: true },
+            { label: 'الصورة', name: 'image', widget: 'image', required: true },
           ],
       },
       {
@@ -145,9 +154,12 @@
               required: true,
             },
             { label: 'البريد الالكتروني', name: 'email', required: true },
-            { label: 'عنصر تواصل', name: 'item4', required: false },
-            { label: 'عنصر تواصل', name: 'item5', required: false },
             { label: 'الموقع', name: 'location', required: true },
+            { label: 'عنصر تواصل اضافي', name: 'item4', required: false },
+            { label: 'عنصر تواصل اضافي', name: 'item5', required: false },
+            { label: 'Location', name: 'location_en', required: true },
+            { label: 'Additional Contact Info', name: 'item4_en', required: false },
+            { label: 'Additional Contact Inof', name: 'item5_en', required: false },
             { label: 'فيسبوك', name: 'facebook', required: false },
             { label: 'انستاغرام', name: 'instagram', required: false },
             { label: 'تويتر', name: 'twitter', required: false },

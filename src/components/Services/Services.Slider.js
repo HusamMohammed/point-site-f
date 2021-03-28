@@ -6,7 +6,7 @@ import ServiceCard from "./Services.Card"
 
 SwiperCore.use([Navigation])
 
-const ServicesSlider2 = ({ services }) => {
+const ServicesSlider2 = ({ services, ltr }) => {
   const [hasMounted, setHasMounted] = React.useState(false)
 
   React.useEffect(() => {
@@ -21,13 +21,16 @@ const ServicesSlider2 = ({ services }) => {
       speed={900}
       slidesPerView={1}
       spaceBetween={0}
-      dir="rtl"
+      dir={ltr ? "ltr" : "rtl"}
       breakpoints={{
         521: {
           slidesPerView: 2,
         },
         990: {
-          slidesPerView: 3,
+          slidesPerView: 2,
+        },
+        1250: {
+          slidesPerView: 2,
         },
       }}
       data-sal="slide-up"
@@ -38,7 +41,7 @@ const ServicesSlider2 = ({ services }) => {
       {services.map((service, index) => {
         return (
           <SwiperSlide key={index}>
-            <ServiceCard service={service} />
+            <ServiceCard service={service} ltr={ltr} />
           </SwiperSlide>
         )
       })}

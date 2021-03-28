@@ -23,13 +23,13 @@ export const Wrapper = styled(Container)`
 export const Item1 = styled.div`
   @media (min-width: ${({ theme }) => theme.breakPoints.md}) {
     flex: 60%;
-    margin-left: 4rem;
+    margin-inline-end: 4rem;
   }
 
   @media (min-width: ${({ theme }) => theme.breakPoints.lg}) {
     flex: auto;
     max-width: 470px;
-    margin-left: 7rem;
+    margin-inline-end: 7rem;
   }
 `
 
@@ -56,6 +56,7 @@ export const Title = styled.h2`
   }
 `
 export const Desc = styled.p`
+  margin-bottom: 2rem;
   position: relative;
   color: ${({ theme }) => theme.colors.washedBlack};
   font-size: 15px;
@@ -64,11 +65,13 @@ export const Desc = styled.p`
   z-index: 1;
 
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
+    margin-bottom: 3rem;
     font-size: 1rem;
     line-height: 34px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakPoints.md}) {
+    margin-bottom: 0;
     font-size: 17px;
     line-height: 38px;
   }

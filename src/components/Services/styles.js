@@ -1,4 +1,11 @@
 import styled from "styled-components"
+import Container from "../shared/Container"
+
+export const ServicesContainer = styled(Container)`
+  @media (min-width: 720px) and (max-width: 990px) {
+    max-width: 720px;
+  }
+`
 
 // Services styles
 export const Section = styled.section`
@@ -19,10 +26,22 @@ export const ServiceCard = styled.div`
   width: 100%;
   padding-bottom: 1rem;
   text-align: center;
-  direction: rtl;
+  direction: ${props => (props.ltr ? "ltr" : "rtl")};
 
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
     padding-bottom: 2rem;
+    max-width: 225px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakPoints.md}) {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakPoints.lg}) {
+    /* max-width: initial; */
+    max-width: 280px;
   }
 
   @media (max-width: 520px) {
@@ -31,15 +50,38 @@ export const ServiceCard = styled.div`
   }
 `
 ServiceCard.Image = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
   height: 100px;
   margin: 0 auto;
-  padding: 1.3rem;
+  /* padding: 1.3rem; */
   background-color: #ffffff;
   border-radius: 50%;
 
+  .gatsby-image-wrapper {
+    max-width: 55px;
+    max-height: 55px;
+
+    @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
+      max-width: 64px;
+      max-height: 64px;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakPoints.md}) {
+      max-width: 72px;
+      max-height: 72px;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakPoints.lg}) {
+      max-width: 80px;
+      max-height: 80px;
+    }
+  }
+
   @media (min-width: ${({ theme }) => theme.breakPoints.sm}) {
-    padding: 2.2rem;
+    /* padding: 2.2rem; */
     width: 140px;
     height: 140px;
   }
@@ -50,14 +92,14 @@ ServiceCard.Image = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakPoints.lg}) {
-    padding: 3rem;
+    /* padding: 3rem; */
     width: 180px;
     height: 180px;
   }
 `
 
 ServiceCard.Title = styled.h3`
-  margin: 1rem 0;
+  margin: 0.5rem 0 1rem;
   color: #1e99cf;
   font-size: 16px;
 

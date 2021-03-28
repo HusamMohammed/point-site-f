@@ -14,14 +14,14 @@ import "swiper/swiper-bundle.min.css"
 
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ltr }) => {
   return (
     <AppProvider>
       <ThemeProvider theme={theme}>
         <>
-          <Header />
-          <Main>{children}</Main>
-          <Footer />
+          <Header ltr={ltr} />
+          <Main ltr={ltr}>{children}</Main>
+          <Footer ltr={ltr} />
         </>
       </ThemeProvider>
     </AppProvider>

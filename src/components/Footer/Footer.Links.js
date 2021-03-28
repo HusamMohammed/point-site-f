@@ -2,7 +2,7 @@ import React from "react"
 
 import { LinksWrapper, FooterBottomLink } from "./styles"
 
-const FooterLinks = () => {
+const FooterLinks = ({ ltr }) => {
   return (
     <LinksWrapper
       data-sal="slide-up"
@@ -10,9 +10,15 @@ const FooterLinks = () => {
       data-sal-duration="400"
       data-sal-easing="ease-out"
     >
-      <FooterBottomLink href="">السجل التجاري</FooterBottomLink>
-      <FooterBottomLink href="">شروط الاستخدام</FooterBottomLink>
-      <FooterBottomLink href="">سياسة الخصوصية</FooterBottomLink>
+      <FooterBottomLink to="/">
+        {ltr ? "Commercial Registry " : "السجل التجاري"}
+      </FooterBottomLink>
+      <FooterBottomLink to="/">
+        {ltr ? "Usage policy" : "شروط الاستخدام"}
+      </FooterBottomLink>
+      <FooterBottomLink to="/">
+        {ltr ? "Privacy policy" : "سياسة الخصوصية"}
+      </FooterBottomLink>
     </LinksWrapper>
   )
 }

@@ -4,14 +4,13 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { Section, Wrapper, Item1, Item2, Title, Desc } from "./styles"
 
-const About = () => {
+const About = ({ about }) => {
+  const { title, description } = about
   const {
-    about: { title, description, image, background },
+    aboutJson: { image, background },
   } = useStaticQuery(graphql`
     {
-      about: aboutJson {
-        title
-        description
+      aboutJson {
         image {
           childImageSharp {
             gatsbyImageData(

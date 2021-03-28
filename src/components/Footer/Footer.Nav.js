@@ -2,7 +2,7 @@ import React from "react"
 
 import { NavWrapper, FooterHeading, Item, FooterLink } from "./styles"
 
-const FooterNav = () => {
+const FooterNav = ({ ltr }) => {
   return (
     <NavWrapper>
       <FooterHeading
@@ -11,7 +11,7 @@ const FooterNav = () => {
         data-sal-duration="300"
         data-sal-easing="ease-out"
       >
-        نقطة
+        {ltr ? "Point" : "نقطة"}
       </FooterHeading>
       <ul>
         <Item
@@ -20,7 +20,7 @@ const FooterNav = () => {
           data-sal-duration="300"
           data-sal-easing="ease-out"
         >
-          <FooterLink to="#عن_نقطة">عن نقطة</FooterLink>
+          <FooterLink to="#عن_نقطة">{ltr ? "About" : "عن نقطة"}</FooterLink>
         </Item>
         <Item
           data-sal="slide-up"
@@ -28,7 +28,7 @@ const FooterNav = () => {
           data-sal-duration="300"
           data-sal-easing="ease-out"
         >
-          <FooterLink to="#خدماتنا">خدماتنا</FooterLink>
+          <FooterLink to="#خدماتنا">{ltr ? "Services" : "خدماتنا"}</FooterLink>
         </Item>
         <Item
           data-sal="slide-up"
@@ -36,7 +36,7 @@ const FooterNav = () => {
           data-sal-duration="300"
           data-sal-easing="ease-out"
         >
-          <FooterLink to="#أعمالنا">أعمالنا</FooterLink>
+          <FooterLink to="#أعمالنا">{ltr ? "Our Works" : "أعمالنا"}</FooterLink>
         </Item>
         <Item
           data-sal="slide-up"
@@ -44,7 +44,9 @@ const FooterNav = () => {
           data-sal-duration="300"
           data-sal-easing="ease-out"
         >
-          <FooterLink to="#عملاؤنا">عملاؤنا</FooterLink>
+          <FooterLink to="#عملاؤنا">
+            {ltr ? "Our Clients" : "عملاؤنا"}
+          </FooterLink>
         </Item>
         <Item
           data-sal="slide-up"
@@ -52,7 +54,9 @@ const FooterNav = () => {
           data-sal-duration="300"
           data-sal-easing="ease-out"
         >
-          <FooterLink to="#اتصل_بنا">اتصل بنا</FooterLink>
+          <FooterLink to="#اتصل_بنا">
+            {ltr ? "Contact Us" : " اتصل بنا"}
+          </FooterLink>
         </Item>
       </ul>
     </NavWrapper>

@@ -18,7 +18,7 @@ const enableStickyHeader = headerElementId => {
       } else {
         if (el.classList.contains("has-slid")) {
           el.classList.add("slide-up")
-          console.log("hey")
+          //console.log("hey")
         }
         el.classList.remove("slide-down")
       }

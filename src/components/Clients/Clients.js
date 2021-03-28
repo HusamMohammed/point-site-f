@@ -11,8 +11,8 @@ import ClientSlide from "./Client"
 
 SwiperCore.use([Navigation])
 
-const Clients = () => {
-  const { clients, subTitle } = useStaticQuery(graphql`
+const Clients = ({ subTitle, ltr }) => {
+  const { clients } = useStaticQuery(graphql`
     {
       clients: allClientsJson(sort: { fields: image___base }) {
         nodes {
@@ -27,9 +27,6 @@ const Clients = () => {
             }
           }
         }
-      }
-      subTitle: subTitesJson {
-        clients
       }
     }
   `)
@@ -50,7 +47,7 @@ const Clients = () => {
           data-sal-duration="400"
           data-sal-easing="ease-out"
         >
-          عملاؤنا
+          {ltr ? "Our Clients" : "عملاؤنا"}
         </Title>
         <SubTitle
           data-sal="slide-up"
@@ -58,7 +55,7 @@ const Clients = () => {
           data-sal-duration="400"
           data-sal-easing="ease-out"
         >
-          {subTitle.clients}
+          {subTitle}
         </SubTitle>
         <Swiper
           navigation
